@@ -1,0 +1,47 @@
+name: covidstats_app
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.3
+  http: ^0.12.2
+  provider: ^4.3.2+2
+  flutter_spinkit: ^4.1.2
+  modal_progress_hud: ^0.1.3
+  charts_flutter: ^0.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+# The following section is specific to Flutter.
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/
+    - images/flags/
+    - assets/splashscreen.jpg
+  #   - images/a_dot_ham.jpeg
+flutter_icons:
+  ios: true
+  android: true
+  # image_path: “assets/launcher/icon.png”
+  image_path_ios: assets/launcher/icon.png
+  image_path_android: assets/launcher/icon.png
+  # adaptive_icon_background: “lib/assets/launcher/background.png”
+  # adaptive_icon_foreground: “lib/assets/launcher/foreground.png”

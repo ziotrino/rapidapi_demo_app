@@ -9,5 +9,5 @@ This sample app uses the covid-193 API services from RapidAPI to gather informat
 It covers various topics, as API calls, image resource handling, charts drawing (charts_flutter library), splash screen, loading progress.
 As a first app, there is a huge margin of improvement i.e. error handling, state management and more.
 
-ADVICE: To use the APIs you need to register and get a user key from RapidAPI at rapidapi.com, the use of the API it's free
+ADVICE: To use the APIs you need to register and get a user key from RapidAPI at rapidapi.com, the usage of this API it's free
 

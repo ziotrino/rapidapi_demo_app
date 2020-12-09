@@ -117,7 +117,7 @@ class DataItemCard extends StatelessWidget {
                           style: kHypeTextStyle,
                         ),
                         Text(
-                          '${deltaCritical.isNegative ? '-' : '+'}$deltaCritical',
+                          '${deltaCritical.isNegative ? '' : '+'}$deltaCritical',
                           style: kHypeTextStyle,
                         ),
                         Text(

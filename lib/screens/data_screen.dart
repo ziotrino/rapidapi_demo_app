@@ -24,7 +24,6 @@ class _DataScreenState extends State<DataScreen> {
     //variables to hold delta with previous day
     int dayTests = 0;
     int dayCritical = 0;
-    int lastActive = 0;
     int dayRecovered = 0;
     double dayRatio = 0;
     String debug;
@@ -42,6 +41,9 @@ class _DataScreenState extends State<DataScreen> {
         if (dataItem.day != curDate) {
           curDate = dataItem.day;
           noDuplicates.add(dataItem);
+          if (noDuplicates.length >= kMaxFetchCount) {
+            break;
+          }
         }
       }
 
@@ -50,14 +52,14 @@ class _DataScreenState extends State<DataScreen> {
         debug = dataItem.time;
         print(debug);
 */
-        if (widget.dataList.indexOf(dataItem) < widget.dataList.length - 1) {
+        if (noDuplicates.indexOf(dataItem) < noDuplicates.length - 1) {
           //the next element is the day before
           if (dataItem.cases.news == null) {
             dataItem.cases.news = '0';
           }
 
           Response prevDayItem =
-              widget.dataList.elementAt(widget.dataList.indexOf(dataItem) + 1);
+              noDuplicates.elementAt(noDuplicates.indexOf(dataItem) + 1);
           dayCritical = 0;
           if (dataItem.cases.critical != null &&
               prevDayItem.cases.critical != null) {
@@ -79,6 +81,7 @@ class _DataScreenState extends State<DataScreen> {
             try {
               dayRatio = (int.tryParse(dataItem.cases.news) * 100) / dayTests;
             } on Exception catch (e) {
+              print(e.toString());
               dayRatio = 0;
             }
           }
@@ -101,7 +104,12 @@ class _DataScreenState extends State<DataScreen> {
           ratio: dayRatio,
         );
         itemCardList.add(card);
-        if (widget.dataList.indexOf(dataItem) == kMaxFetchCount) break;
+/*
+        if (itemCardList.length >= kMaxFetchCount) {
+          print('no duplicates list ${noDuplicates.length}');
+          break;
+        }
+*/
       }
 
       return Scaffold(

@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const kBaseURL = "https://covid-193.p.rapidapi.com/";
-const rapidApiKey = "[your RapidAPI key here]";
+const rapidApiKey = "";
 const kStatsSearch = 'statistics';
 const kHistorySearch = "history";
 const kCountryList = 'countries';
 
 //max number of days to display
-const kMaxFetchCount = 60;
+const kMaxFetchCount = 120;
+const kWeekData = 7;
+const kMonthData = 30;
 
 const TextStyle kButtonTextStyle = TextStyle(
   fontSize: 30.0,

@@ -1,16 +1,13 @@
-# sandbox_app
+# covidstats_app
 
-A new Flutter application.
+A sample Flutter application.
+
 
 ## Getting Started
+this is my very first Flutter application (and first Github repo) after attending at the Udemy Flutter course from London App Brewery.
+This sample app uses the covid-193 API services from RapidAPI to gather informations about COVID pandemic.
+It covers various topics, as API calls, image resource handling, charts drawing (charts_flutter library), splash screen, loading progress.
+As a first app, there is a huge margin of improvement i.e. error handling, state management and more.
 
-This project is a starting point for a Flutter application.
+ADVICE: To use the APIs you need to register and get a user key from RapidAPI at rapidapi.com, the usage of this API it's free
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

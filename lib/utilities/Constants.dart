@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const kBaseURL = "https://covid-193.p.rapidapi.com/";
-const rapidApiKey = "";
+const rapidApiKey = "341ceb3ec8msh842c71dd9cac453p1b32ebjsn357f2c34544d";
 const kStatsSearch = 'statistics';
 const kHistorySearch = "history";
 const kCountryList = 'countries';

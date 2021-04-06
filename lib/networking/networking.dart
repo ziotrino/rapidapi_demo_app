@@ -26,7 +26,8 @@ class NetworkHelper {
       }
     } on TimeoutException catch (_) {
       Fluttertoast.showToast(
-          msg: "Timeout occurred with network connection: $url",
+          msg:
+              "Timeout occurred while connecting to: $url\nCheck network settings",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
@@ -36,7 +37,7 @@ class NetworkHelper {
       return null;
     } on SocketException catch (_) {
       Fluttertoast.showToast(
-          msg: "Socket exception occurred",
+          msg: "Socket exception occurred\nCheck network settings",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,

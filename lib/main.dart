@@ -9,8 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
+      title: 'COVID-19 stats',
+      theme: ThemeData(
+        primaryColor: Color.fromRGBO(58, 66, 86, 1.0),
+        accentColor: Color.fromRGBO(58, 96, 100, 1.0),
+      ),
       home: LoadingScreen(),
     );
   }

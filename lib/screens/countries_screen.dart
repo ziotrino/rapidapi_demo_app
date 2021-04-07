@@ -27,16 +27,18 @@ class _CountriesScreenState extends State<CountriesScreen> {
     String url = '$kBaseURL$kHistorySearch?country=${country}';
     //String url = '$kBaseURL$kHistorySearch';
     var response = await DataHelper().getData(url);
-    RapidResponse covidData = RapidResponse.fromJson(response);
-    setState(() {
-      _querying = false;
-    });
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return DataScreen(
-        dataList: covidData.response,
-        countryName: country,
-      );
-    }));
+    if (response != null) {
+      RapidResponse covidData = RapidResponse.fromJson(response);
+      setState(() {
+        _querying = false;
+      });
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return DataScreen(
+          dataList: covidData.response,
+          countryName: country,
+        );
+      }));
+    }
   }
 
   @override
@@ -59,14 +61,81 @@ class _CountriesScreenState extends State<CountriesScreen> {
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            Container(
+              color: Color.fromRGBO(58, 66, 86, 1.0),
+              child: DrawerHeader(
+                child: Text(
+                  'Data range to display',
+                  style: kMediumLabelTextStyle,
+                ),
+                decoration: BoxDecoration(
+                    //color: Colors.blue,
+                    ),
+              ),
+            ),
+            Divider(
+              height: 10,
+              thickness: 10,
+              color: Colors.white,
+            ),
+            Container(
+              child: ListTile(
+                title: Text('2 weeks'),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Update the state of the app.
+                  // ...
+                },
+              ),
+            ),
+            ListTile(
+              title: Text('4 weeks'),
+              onTap: () {
+                Navigator.pop(context);
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('6 weeks'),
+              onTap: () {
+                Navigator.pop(context);
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('12 weeks'),
+              onTap: () {
+                Navigator.pop(context);
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('18 weeks'),
+              onTap: () {
+                Navigator.pop(context);
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         elevation: 0.1,
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-        leading: Container(
+        /*leading: Container(
           child: Image(
             image: AssetImage('images/covid_19.png'),
           ),
-        ),
+        ),*/
         title: Text('Countries stats'),
       ),
       body: ModalProgressHUD(

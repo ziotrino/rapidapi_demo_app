@@ -15,9 +15,9 @@ class CountryItemCard extends StatelessWidget {
     if (newCases < 500) return Colors.green;
     if (newCases < 1000) return Colors.yellowAccent;
     if (newCases < 3000) return Colors.orange;
-    if (newCases < 5000) return Colors.deepOrangeAccent;
-    if (newCases < 10000) return Colors.pink;
-    return Colors.white;
+    if (newCases < 10000) return Colors.deepOrangeAccent;
+    if (newCases < 20000) return Colors.pink;
+    return Colors.red;
   }
 
   @override

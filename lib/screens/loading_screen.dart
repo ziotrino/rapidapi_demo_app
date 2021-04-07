@@ -24,6 +24,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
       String url = '$kBaseURL$kStatsSearch';
       var response = await DataHelper().getData(url);
       if (response == null) {
+        setState(() {
+          _starting = false;
+        });
         throw ('Connection error');
       }
       Stats covidData = Stats.fromJson(response);
@@ -36,8 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         );
       }));
     } on Exception catch (e) {
-      _starting = false;
-      Scaffold.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content:
             Text("Sorry, there was an error retrieving data ${e.toString()}"),
       ));

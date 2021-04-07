@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:covidstats_app/networking/networking.dart';
 import 'package:covidstats_app/utilities/Constants.dart';
@@ -17,10 +16,8 @@ class DataHelper {
       var covidData =
           await networkHelper.getData().timeout(Duration(seconds: 10));
       return covidData;
-    } on TimeoutException catch (_) {
-      return null;
-    } on SocketException catch (_) {
-      return null;
+    } on Exception catch (e) {
+      print(e.toString());
     }
   }
 }
